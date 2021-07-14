@@ -1,0 +1,95 @@
+@use 'components/colors' as c;
+@use 'components/fonts' as f;
+@use 'components/img' as i;
+@use 'components/nav' as n;
+@use 'components/layout' as l;
+
+*{
+    margin: 0;
+    padding: 0;  
+    box-sizing: border-box;
+}
+
+html{
+    height: 100%;
+    scroll-behavior: smooth;
+}
+
+.header{
+    grid-area: header;
+}
+
+.main{
+    grid-area: main;
+}
+
+.grid-container{
+    min-height:100%;
+    //@include l.movil();
+    background: c.$secondary_color;
+
+    .header{
+        background: c.$primary_color; 
+
+        .container-name{
+            @include l.displayCenter(column);
+            padding-left: 15px;
+
+            img{
+                @extend .img-round;
+                margin-top: 30px;
+            }
+            h2{
+                margin-top: 40px;
+            }
+        }
+        .container-nav{
+
+            ul{     
+                width: 90%;
+                margin-top: 20px;
+                margin-left: 5%;        
+                list-style: none;
+                li{   
+                    height: 60px;    
+                    padding-top: 13px;
+                    text-align: center;
+                    border-bottom: solid 2px #fff;
+                    transition: .3s;
+                    a{
+                        text-decoration: none;
+                        font-size: 24px;
+                        letter-spacing: 1px;
+                        color: black;
+                    }
+                    &:hover{
+                        background: burlywood;
+                        transition: .3s;
+                    }
+                }
+            }
+        }
+    }
+
+    .main{
+        
+        section{
+            height: 100vh;
+            background: c.$tertiary_color;
+        }     
+    }
+}
+
+@media (min-width: 768px){
+    .grid-container{
+        @include l.tablet();
+    }
+
+}
+
+@media (min-width: 1280px){
+    .grid-container{
+        @include l.pc();
+    }
+
+}

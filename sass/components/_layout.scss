@@ -1,0 +1,30 @@
+@mixin movil{
+    display: grid;
+    gap: 10px;
+    grid-template:   
+    "header header"
+    "main main";    
+}
+
+@mixin tablet {
+    display: grid;
+    gap: 10px;
+    grid-template:   
+    "header header main"
+    "header header main";  
+}
+
+@mixin pc {
+    display: grid;
+    gap: 10px;
+    grid-template:   
+    "header main main main "
+    "header main main main";
+
+}
+
+@mixin displayCenter($direction){
+    display: flex;
+    align-items: center;
+    flex-direction: $direction;    
+}
